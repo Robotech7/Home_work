@@ -1,6 +1,6 @@
 
 class Fraction:
-    """Объект дробь"""
+    """Объект дробь."""
 
     def __init__(self, top: int, bottom: int):
         k = Fraction.gcd(top, bottom)
