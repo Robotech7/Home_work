@@ -24,7 +24,6 @@ class Fraction:
         self.top = self.top / top
         self.bottom = self.bottom / top
 
-
     def __add__(self, other):
         new_top = self.top * other.bottom + self.bottom * other.top
         new_bottom = self.bottom * other.bottom
@@ -49,13 +48,30 @@ class Fraction:
         k = Fraction.gcd(new_top, new_bottom)
         return Fraction(new_top / k, new_bottom / k)
 
+    def __eq__(self, other):
+        if self.top / self.bottom == other.top / other.bottom:
+            return True
+        else:
+            return False
+
+    def __gt__(self, other):
+        if self.top / self.bottom > other.top / other.bottom:
+            return True
+        else:
+            return False
+
+    def __le__(self, other):
+        if self.top / self.bottom <= other.top / other.bottom:
+            return True
+        else:
+            return False
 
     def __str__(self):
         return f'Fraction{int(self.top), int(self.bottom)}'
 
 
-a = Fraction(3, 1)
-b = Fraction(2, 6)
-b.c()
+a = Fraction(5, 2)
+b = Fraction(5, 2)
+
 c = a + b
-print(b)
+print(c)
