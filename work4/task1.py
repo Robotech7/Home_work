@@ -3,10 +3,11 @@ class Fraction:
     """Объект дробь"""
 
     def __init__(self, top: int, bottom: int):
-        self.top = top
+        k = Fraction.gcd(top, bottom)
+        self.top = top / k
         if bottom == 0:
             raise ZeroDivisionError('Знаменатель не может быть равным 0')
-        self.bottom = bottom
+        self.bottom = bottom / k
 
     @classmethod
     def gcd(cls, top, bottom):
@@ -16,13 +17,13 @@ class Fraction:
             top, bottom = bottom, top % bottom
         return top
 
-    def c(self):
-        top = abs(self.top)
-        bottom = abs(self.bottom)
-        while bottom:
-            top, bottom = bottom, top % bottom
-        self.top = self.top / top
-        self.bottom = self.bottom / top
+    # def c(self):
+    #     top = abs(self.top)
+    #     bottom = abs(self.bottom)
+    #     while bottom:
+    #         top, bottom = bottom, top % bottom
+    #     self.top = self.top / top
+    #     self.bottom = self.bottom / top
 
     def __add__(self, other):
         new_top = self.top * other.bottom + self.bottom * other.top
@@ -73,5 +74,5 @@ class Fraction:
 a = Fraction(5, 2)
 b = Fraction(5, 2)
 
-c = a + b
+c = a * b
 print(c)
