@@ -29,9 +29,13 @@ class Polynome:
         #     y += 1
         return result
 
+    def __str__(self):
+        return f'Polynome{tuple([x for x in self.array])}'
+
 
 a = Polynome([-5, 15, -16, 11])
 b = Polynome([1, -5, 2, 23])
 
 c = a + b
 print(a.calc(5))
+print(a)
