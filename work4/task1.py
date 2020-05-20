@@ -47,7 +47,7 @@ class Fraction:
         new_top = self.top / other.top
         new_bottom = self.bottom / other.bottom
         k = Fraction.gcd(new_top, new_bottom)
-        return Fraction(new_top / k, new_bottom / k)
+        return Fraction(int(new_top / k), int(new_bottom / k))
 
     def __eq__(self, other):
         if self.top / self.bottom == other.top / other.bottom:
@@ -74,5 +74,5 @@ class Fraction:
 a = Fraction(5, 2)
 b = Fraction(5, 2)
 
-c = a * b
+c = a / b
 print(c)
